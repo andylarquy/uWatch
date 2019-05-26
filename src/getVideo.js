@@ -1,5 +1,10 @@
+var url;
+chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+	
+	url = tabs[0].url;
+	check();
+});
 
-var url="https://www.youtube.com/watch?v=CfKVU0i7w_w&list=PLU8oAlHdN5BmpobVmj1IlneKlVLJ84TID&index=10";
 var i;
 var titlesArray = [];
 var thumbnailsArray = [];
@@ -59,6 +64,5 @@ function check(){
 		});
 }
 	
-check();
 
 
