@@ -45,7 +45,6 @@ function check(){
 		$.get(url, function(responseText) {
     		analyze(responseText);
 			alert(titlesArray[0]);
-			flag = true;
 			document.write(titlesArray[0]);
 		});
 	
