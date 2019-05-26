@@ -1,8 +1,8 @@
 
 var url="https://www.youtube.com/watch?v=CfKVU0i7w_w&list=PLU8oAlHdN5BmpobVmj1IlneKlVLJ84TID&index=10";
 var i;
-var titlesArray = new Array()
-var thumbnailsArray = new Array()
+var titlesArray = [];
+var thumbnailsArray = [];
 
 
 function titleArrayParse(text, initialFlag, finalFlag){
@@ -32,23 +32,26 @@ function analyze(response){
 	}
 
 	for(i=0;i<sourceArray.length;i++){
-		alert(thumbnailsArray[i]);
+		//alert(thumbnailsArray[i]);
 	}
+
+	
+//	alert(titlesArray[0]);
 }
+
 
 function check(){
-	if(localStorage.prueba) url = localStorage.prueba;
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange=function(){
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			analyze(xmlhttp.responseText);
-			
-		}
-	}
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send(null);
+
+		$.get(url, function(responseText) {
+    		analyze(responseText);
+			alert(titlesArray[0]);
+			flag = true;
+			document.write(titlesArray[0]);
+		});
 	
 
-}
-
+}	
+	
 check();
+
+
