@@ -12,12 +12,25 @@ function prueba(response){
 	
 }
 
+function titleArrayParse(text, initialFlag, finalFlag){
+
+	return text[i].substring(text[i].indexOf(initialFlag) +25, text[i].indexOf('}'));
+
+}
+
 function analyze(response){
 
 	var sourceArray=response.split('playlistPanelVideoRenderer');
 
 	for(i=0;i<sourceArray.length;i++){
-		alert("iteracion "+i+": "+sourceArray[i]);
+	//	alert("iteracion "+i+": "+sourceArray[i]);
+	}
+
+	var titlesArray = new Array()
+
+	for(i=0;i<sourceArray.length;i++){
+		titlesArray[i] = titleArrayParse(sourceArray, '":{"title":{"simpleText":', '}');
+		alert(titlesArray[i]);
 	}
 
 }
