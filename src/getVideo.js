@@ -4,7 +4,6 @@ var i;
 var titlesArray = [];
 var thumbnailsArray = [];
 var linksArray = [];
-var j;
 
 
 function titleArrayParse(text, initialFlag, finalFlag){
