@@ -3,6 +3,7 @@ var url="https://www.youtube.com/watch?v=CfKVU0i7w_w&list=PLU8oAlHdN5BmpobVmj1Il
 var i;
 var titlesArray = [];
 var thumbnailsArray = [];
+var tempToTest = 5;
 
 
 function titleArrayParse(text, initialFlag, finalFlag){
@@ -44,12 +45,9 @@ function check(){
 
 		$.get(url, function(responseText) {
     		analyze(responseText);
-			alert(titlesArray[0]);
-			document.write(titlesArray[0]);
+			alert("Check "+titlesArray[0]);
 		});
-	
-
-}	
+}
 	
 check();
 
