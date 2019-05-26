@@ -1,38 +1,39 @@
 
 var url="https://www.youtube.com/watch?v=CfKVU0i7w_w&list=PLU8oAlHdN5BmpobVmj1IlneKlVLJ84TID&index=10";
 var i;
-var indexArrayNombres1 = new Array();
-var indexArrayNombres2 = new Array();
-var indexArrayLinks = new Array();
+var titlesArray = new Array()
+var thumbnailsArray = new Array()
 
-function prueba(response){
-	alert(localStorage.prueba);
-	alert(response.substring(indexArrayNombres1[0],indexArrayNombres2[1]));
-	alert(response.indexOf('Curso JavaScript desde 0. Presentac'));
-	
-}
 
 function titleArrayParse(text, initialFlag, finalFlag){
 
-	return text[i].substring(text[i].indexOf(initialFlag) +25, text[i].indexOf('}'));
+	return text[i].substring(text[i].indexOf(initialFlag) +25, text[i].indexOf(finalFlag));
+
+}
+
+function thumbnailArrayParse(text, initialFlag, finalFlag,offset){
+
+	return text[i].substring(text[i].indexOf(initialFlag,offset)+6, text[i].indexOf(finalFlag,offset));
 
 }
 
 function analyze(response){
 
 	var sourceArray=response.split('playlistPanelVideoRenderer');
-
-	for(i=0;i<sourceArray.length;i++){
-	//	alert("iteracion "+i+": "+sourceArray[i]);
-	}
-
-	var titlesArray = new Array()
+	sourceArray.shift(); //The first element is trash
 
 	for(i=0;i<sourceArray.length;i++){
 		titlesArray[i] = titleArrayParse(sourceArray, '":{"title":{"simpleText":', '}');
-		alert(titlesArray[i]);
+		
 	}
 
+	for(i=0;i<sourceArray.length;i++){												//That sum prevents the offset be too low
+		thumbnailsArray[i] = thumbnailArrayParse(sourceArray, '"url":',',"width":',266+titlesArray[i].length);
+	}
+
+	for(i=0;i<sourceArray.length;i++){
+		alert(thumbnailsArray[i]);
+	}
 }
 
 function check(){
@@ -41,7 +42,6 @@ function check(){
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			analyze(xmlhttp.responseText);
-			prueba(xmlhttp.responseText);
 			
 		}
 	}
