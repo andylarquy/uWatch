@@ -4,18 +4,28 @@ setTimeout(startLoading,delayTime);
 
 
 function startLoading(){
+	var tempStr='';//Necessary because append automatically closes the tags
 
-		$('#list').append('<p>It may crashes a bit when you open a video but after a few seconds starts to working right</p>');
-
-		$('#list').append("<ol>");
+		tempStr+=('<p>It may crashes a bit when you open a video but after a few seconds starts to working right</p>');
+		
+		
+		tempStr+="<ol>";
+	
 
 	for(i = 0; i < titlesArray.length; i++){
-		$('#list').append("<li>"+titlesArray[i]+"</li>");
-		$('#list').append('<a href="'+linksArray[i]+'" target="_blank" draggable="false">');
-		$('#list').append('<img draggable="false" height="64" width="84" src='+thumbnailsArray[i]+'></a>');
+		tempStr+='<li><p>'+titlesArray[i]+'</p>';
+		tempStr+='<p><a href="'+linksArray[i]+'" target="_blank" draggable="false">';
+		tempStr+='<img draggable="false" height="64" width="84" src='+thumbnailsArray[i]+'>';
+		tempStr+='</a></p>';
+		tempStr+='</li>';
+
 
 
 	}
-	$('#list').append('</ol>');
+	tempStr+='</ol>';
+
+	$('#list').append(tempStr);
+
+
 
 }	
