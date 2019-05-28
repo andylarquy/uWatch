@@ -4,17 +4,18 @@ setTimeout(startLoading,delayTime);
 
 
 function startLoading(){
-		document.write('<!DOCTYPE html>');
-		document.write('<link rel="stylesheet" type="text/css" href="popup.css">');
-		document.write(	'<p>It may crashes a bit when you open a video but after a few seconds starts to working right</p>');
 
-		document.write("<ol>");
+		$('#list').append('<p>It may crashes a bit when you open a video but after a few seconds starts to working right</p>');
+
+		$('#list').append("<ol>");
+
 	for(i = 0; i < titlesArray.length; i++){
+		$('#list').append("<li>"+titlesArray[i]+"</li>");
+		$('#list').append('<a href="'+linksArray[i]+'" target="_blank" draggable="false">');
+		$('#list').append('<img draggable="false" height="64" width="84" src='+thumbnailsArray[i]+'></a>');
 
-		document.write("<li>"+titlesArray[i]+"</li>");
-		document.write('<a href="'+linksArray[i]+'" target="_blank" draggable="false">');
-		document.write('<img draggable="false" height="64" width="84" src='+thumbnailsArray[i]+'></a>');
+
 	}
-	document.write("</ol>");
+	$('#list').append('</ol>');
 
 }	
