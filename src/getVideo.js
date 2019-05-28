@@ -2,7 +2,8 @@ var url;
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 	
 	url = tabs[0].url;
-	check();
+
+	check(); //I'm actually not sure why this has to be here, but it has to, otherwise nothing works.
 });
 
 var i;
@@ -56,6 +57,8 @@ function analyze(response){
 		linksArray[i] = videoLinksArrayParse(sourceArray)
 	}
 
+
+
 }
 
 
@@ -63,11 +66,20 @@ function check(){
 
 		$.get(url, function(responseText) {
     		analyze(responseText);
+    		startLoading();
 		});
+
+		
+
 }
 
 function getListFromUrl(){
 	return url.substring(url.indexOf('&list'),url.length);
+}
+
+function getListId(){
+	//When you click a video on a playlist it changes the 'index' value, so I remove it
+	return getListFromUrl().substring(0,getListFromUrl().indexOf('&index'));
 }
 	
 
