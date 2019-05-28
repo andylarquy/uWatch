@@ -1,7 +1,7 @@
   {
     "name": "uWatch",
     "version": "0.1",
-    "description": "Mejora la experiencia en el uso de las listas de reproduccion en youtube",
+    "description": "Improves the system to watch playlists on youtube",
     "permissions": ["tabs","declarativeContent", "storage","http://*/*", "https://*/*","https://www.youtube.com/*"],
     "background": {
       "page": "background.html",
