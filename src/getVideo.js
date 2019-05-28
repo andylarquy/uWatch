@@ -28,9 +28,11 @@ function videoLinksArrayParse(text){
 	temp1.replace('"','') //remove quotes from link
 	
 	temp1 = temp1.substring(24,temp1.indexOf('/hqdefault'));
-	
+
+	temp1 += getListFromUrl();
+
 	var temp2 = 'https://www.youtube.com/watch?v='+temp1;
-	//that's the link without the playlist, for now that's the only way
+	
 	return temp2
 
 
@@ -62,6 +64,10 @@ function check(){
 		$.get(url, function(responseText) {
     		analyze(responseText);
 		});
+}
+
+function getListFromUrl(){
+	return url.substring(url.indexOf('&list'),url.length);
 }
 	
 
