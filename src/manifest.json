@@ -2,7 +2,7 @@
     "name": "uWatch",
     "version": "0.1",
     "description": "Improves the system to watch playlists on youtube",
-    "permissions": ["tabs","declarativeContent", "storage","http://*/*", "https://*/*","https://www.youtube.com/*"],
+    "permissions": ["background","tabs","declarativeContent", "storage","http://*/*", "https://*/*","https://www.youtube.com/*"],
     "background": {
       "page": "background.html",
       "persistent": false

@@ -85,6 +85,13 @@ function writeOnPopup(){
 
 	$('#list').append(tempStr);
 
+	function prueba(){
+		alert('lo vio');
+	}
+	//Start clock to record video time
+	alert(linksArray);
+	chrome.extension.getBackgroundPage().startRecordClock(url,linksArray);
+
 	//================================== WRITE ON POPUAP LOADED DATA ==================================
 
 }
