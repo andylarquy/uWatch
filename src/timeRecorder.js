@@ -1,5 +1,5 @@
 function recordTime(url,linksArray){
-	getCurrentUrlFromData(url,linksArray);
+	console.log('The index of the video you are watching is: '+getCurrentUrlFromData(url,linksArray));
 }
 
 function getTime(){
@@ -7,5 +7,21 @@ function getTime(){
 }
 
 function getCurrentUrlFromData(url,linksArray){
-	//TODO - Returns the index to linksArray in wich you are located
+	var i;
+	var flagUrlChecker = false;
+	for(i=0;i<linksArray.length;i++){
+
+		if(linksArray[i].includes(url)){
+			flagUrlChecker = true;
+			break; 
+		}
+
+	}
+
+	if(!flagUrlChecker){
+		throw 'There was an error while loading the playilists URL, please reset de memory';
+	}else{
+		return i;
+	}
+
 }

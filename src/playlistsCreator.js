@@ -73,6 +73,7 @@ function writeOnPopup(){
 
 	for(i = 0; i < titlesArray.length; i++){
 		tempStr+='<li><p>'+titlesArray[i]+'</p>';
+		//TODO - Check if it's required on click execute a clear intervalId;
 		tempStr+='<p><a href="'+linksArray[i]+'" target="_blank" draggable="false">';
 		tempStr+='<img draggable="false" height="64" width="84" src='+thumbnailsArray[i]+'>';
 		tempStr+='</a></p>';

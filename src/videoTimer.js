@@ -1,5 +1,5 @@
 var timeLapse = 1000;
-
+var intervalId;
 function startRecordClock(url,linksArray){
-	setInterval(function() { recordTime(url,linksArray); },timeLapse);
+	intervalId = setInterval(function() { recordTime(url,linksArray); },timeLapse);
 }

@@ -1,6 +1,6 @@
   chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set({color: '#3aa757'}, function() {
-      console.log('The color is green.');
+    chrome.storage.sync.set({color: '#3a0860'}, function() {
+      console.log('uWatch is running');
     });
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
       chrome.declarativeContent.onPageChanged.addRules([{
